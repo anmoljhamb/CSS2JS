@@ -44,6 +44,10 @@ class Selector {
         string += "}"
         return string
     }
+
+    forEach(callback){
+        this.properties.forEach(el => callback(el))
+    }
 }
 
 
@@ -87,6 +91,11 @@ class CSSParse {
             })
             this.selectors.push(currentSelector)
         })
+    }
+
+
+    forEach(callback){
+        this.selectors.forEach(el => callback(el))
     }
 }
 
