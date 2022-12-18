@@ -1,7 +1,22 @@
-const CSSParse = require("./CSSParse")
-const fs = require("fs")
+const Convert = require("./Convert")
 const path = require("path")
+const express = require("express")
+const app = express() 
 
-let cssString = fs.readFileSync(path.join(__dirname, "test.css"), "utf-8")
-cssParse = new CSSParse(cssString)
-console.log(cssParse.selectors[0].query);
+
+const port = 9000
+const hostname = "localhost"
+
+app.use(express.static(path.join(__dirname, "..", "static")))
+app.set("view engine", "ejs")
+app.set("views", path.join(__dirname, "..", "templates"))
+
+
+app.get("/", (req, res) => {
+    res.render("index")
+})
+
+
+app.listen(port, hostname, () => {
+    console.log(`Listening on the url: http://${hostname}:${port}`);
+})
