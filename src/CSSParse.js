@@ -37,7 +37,7 @@ class Selector {
     }
 
     toString() {
-        string = `${this.query} {\n`
+        let string = `${this.query} {\n`
         this.properties.forEach(property => {
             string += `${property.toString()}\n`
         })
@@ -55,7 +55,6 @@ const findAll = (re, string) => {
     while (match != null) {
         matches.push(match)
         match = re.exec(string)
-        break
     }
     return matches
 }
@@ -65,20 +64,28 @@ class CSSParse {
     constructor(cssString) {
         // Takes in cssString as constructor.
         this.cssString = cssString;
+        this.selectors = []
         // find all selectors
-        const selectors = findAll(Selector.pattern, this.cssString)
-        selectors.forEach((selector) => {
+        findAll(Selector.pattern, this.cssString).forEach((selector) => {
 
             /*
                 startIndex: index of { from selector {property: value} 
                 endIndex: index of } from selector { property: value}
-                patternString = cssString[startIndex:startIndex+endIndex] 
+                propertyString = cssString[startIndex:startIndex+endIndex] 
             */
 
             const startIndex = selector.index + selector[0].length
-            console.log(selector);
+            const selectorName = selector[1].trim()
+            const currentSelector = new Selector(selectorName)
             const endIndex = /\}/.exec(this.cssString.slice(startIndex)).index
-            const patternString = this.cssString.slice(startIndex, startIndex + endIndex)
+            const propertyString = this.cssString.slice(startIndex, startIndex + endIndex)
+            const properties = findAll(Property.pattern, propertyString)
+            properties.forEach(prop => {
+                const propName = prop[1].trim()
+                const propValue = prop[2].trim()
+                currentSelector.addProperty(new Property(propName, propValue))
+            })
+            this.selectors.push(currentSelector)
         })
     }
 }
