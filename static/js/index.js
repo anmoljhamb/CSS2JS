@@ -3,7 +3,12 @@ const js = document.querySelector("textarea.js")
 
 
 document.querySelector("button")
-    .addEventListener("click", () => {
-        console.log(css.value);
-        js.value = css.value
+    .addEventListener("click", async () => {
+        const resp = await fetch("/convert", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({css: css.value})
+        })
+        const data = await resp.json()
+        js.value = data.converted
     })
