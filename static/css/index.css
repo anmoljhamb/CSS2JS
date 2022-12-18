@@ -89,7 +89,7 @@ div {
     height: 100%;
     border: 0px solid var(--color4);
     padding: 10px;
-    font-size: 30px;
+    font-size: 25px;
     border-radius: 5px;
     resize: none;
 }
@@ -112,6 +112,7 @@ div {
     transition: all 0.3s linear;
 }
 
+.container .middle button.active,
 .container .middle button:hover{
     background-color: var(--color3);
     color: var(--color1);
@@ -131,4 +132,14 @@ div {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color3);
+}
+
+i {
+    margin-top: 10px;
+    color: var(--color4);
+    transition: all 0.3 linear;
+}
+
+i:hover {
+    color: var(--color3);
 }
