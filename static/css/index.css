@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;900&display=swap');
 :root {
-    --primary: #130f40;
-    --secondary: #f9ca24;
+    --color1: #F9F7F7;
+    --color2: #DBE2EF;
+    --color3: #3F72AF;
+    --color4: #112D4E;
 }
 
 * {
@@ -15,12 +18,117 @@ body {
     display: flex;
     width: 100%;
     height: 100vh;
-    justify-content: center;
+    /* justify-content: center; */
+    flex-direction: column;
     align-items: center;
-    background-color: var(--primary);
+    background-color: var(--color1);
 }
 
-h1{
-    font-size: 50px;
-    color: var(--secondary);
+div {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heading {
+    background-color: var(--color2);
+    border-radius: 10px;
+    margin: 20px 0px;
+    padding: 10px;
+    text-align: center;
+}
+
+.heading h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 60px;
+    color: var(--color4);
+    font-weight: bold;
+    text-align: center;
+}
+
+.heading p {
+    width: 70%;
+    font-size: 40px;
+    color: var(--color3);
+    text-align: center;
+    font-weight: bold;
+}
+
+.container {
+    height: calc(100vh - 200px);
+    border-radius: 10px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 200px 1fr;
+}
+
+.container div {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.container .left,
+.container .right {
+    background-color: var(--color2);
+    padding: 20px;
+    font-size: 30px;
+    padding-top: 10px;
+}
+
+.container p {
+    color: var(--color4);
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.container textarea {
+    width: 100%;
+    height: 100%;
+    border: 0px solid var(--color4);
+    padding: 10px;
+    font-size: 30px;
+    border-radius: 5px;
+    resize: none;
+}
+
+.container .middle {
+    background-color: var(--color1);
+    padding: 20px;
+}
+
+.container .middle button {
+    width: 100%;
+    height: 80px;
+    font-size: 40px;
+    border: 2px solid var(--color3);
+    color: var(--color4);
+    background-color: var(--color1);
+    border-radius: 10px;
+    box-shadow: none;
+    text-transform: uppercase;
+    transition: all 0.3s linear;
+}
+
+.container .middle button:hover{
+    background-color: var(--color3);
+    color: var(--color1);
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color3);
 }
