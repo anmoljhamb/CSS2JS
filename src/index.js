@@ -32,6 +32,6 @@ app.post("/convert", (req, res) => {
 })
 
 
-app.listen(port, hostname, () => {
+app.listen(port, () => {
     console.log(`Listening on the url: http://${hostname}:${port}`);
 })
