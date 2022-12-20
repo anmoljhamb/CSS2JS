@@ -3,6 +3,7 @@ const path = require("path")
 const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
+const morgan = require("morgan")
 
 
 const port = 9000
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 app.use(bodyParser.json())
+app.use(morgan("dev"))
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "..", "templates"))
 
