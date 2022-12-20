@@ -35,7 +35,7 @@ Start the server
   npm start
 ```
 
-The server will be run with `nodemon`.
+The server will run with `nodemon`.
 
 ## Screenshot
 ![Screenshot](./screenshot.png)
