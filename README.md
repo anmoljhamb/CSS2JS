@@ -5,9 +5,6 @@ An app to convert simple CSS code to Javascript DOM Manipulation code.
 
 ## Demo
 You can checkout a demo of the website [here](https://css2js.vercel.app/).
-![Demo](./demo.gif "Demo")
-
-
 
 ## Run Locally
 
